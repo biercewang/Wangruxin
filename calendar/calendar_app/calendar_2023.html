@@ -1,0 +1,61 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>2023 Calendar</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #year-header {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            #calendar {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 5px;
+                width: 100%;
+                max-width: 297mm;
+            }
+            .month {
+                border: 1px solid black;
+                padding: 3px;
+                height: 70mm;
+            }
+            .month-header {
+                font-size: 12px;
+                font-weight: bold;
+                margin-bottom: 2px;
+            }
+            .month-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-gap: 1px;
+                text-align: center;
+                font-size: 10px;
+                height: 100%;
+            }
+            .day-header {
+                font-weight: bold;
+                background-color: #f0f0f0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="year-header">2023年</div>
+        <div id="calendar">
+    <div class='month'><div class='month-header'>1月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>2月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div></div></div><div class='month'><div class='month-header'>3月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>4月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div></div></div><div class='month'><div class='month-header'>5月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>6月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div></div></div><div class='month'><div class='month-header'>7月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>8月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>9月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div></div></div><div class='month'><div class='month-header'>10月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div><div class='month'><div class='month-header'>11月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div></div></div><div class='month'><div class='month-header'>12月</div><div class='month-grid'><div class='day-header'>周日</div><div class='day-header'>周一</div><div class='day-header'>周二</div><div class='day-header'>周三</div><div class='day-header'>周四</div><div class='day-header'>周五</div><div class='day-header'>周六</div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div></div>
+        </div>
+    </body>
+    </html>
+    

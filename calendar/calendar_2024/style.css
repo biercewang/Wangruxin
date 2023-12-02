@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#year-header {
+    font-size: 18px; /* 调整年份标题大小 */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4列 */
+    grid-gap: 5px; /* 间隙 */
+    width: 100%;
+    max-width: 297mm; /* A4纸张宽度 */
+}
+
+.month {
+    border: 1px solid black;
+    padding: 3px;
+    height: 70mm; /* 根据A4纸张高度调整 */
+}
+
+.month-header {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7天每周 */
+    grid-gap: 1px;
+    text-align: center;
+    font-size: 10px; /* 调整日期字体大小 */
+    height: 100%; /* 使网格填满月份容器 */
+}
+
+.day-header {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+@media print {
+    body {
+        width: 297mm;
+        height: 210mm;
+        padding: 10mm; /* 添加打印边距 */
+    }
+    #calendar {
+        grid-gap: 2px;
+    }
+    .month {
+        page-break-inside: avoid;
+    }
+}
