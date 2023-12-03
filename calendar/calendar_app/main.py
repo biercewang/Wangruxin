@@ -2,17 +2,19 @@ import calendar
 import sys
 import webbrowser
 import os
+from lunarcalendar import Converter, Solar, Lunar, DateNotExist
+from datetime import datetime
 
 class FestivalGenerator:
     def __init__(self, year):
         self.year = year
+
         self.festivals = {
-            (1, 1): "元旦",
-            (1, 20): "贝贝生日",   
+
+            (1, 1): "元旦",  
             (2, 14): "情人节",
             (3, 8): "妇女节",
             (3, 12): "植树节",
-            (2, 21): "妈妈生日",
             (4, 1): "愚人节",
             (5, 1): "劳动节",
             (5, 4): "青年节",
@@ -21,16 +23,27 @@ class FestivalGenerator:
             (8, 1): "建军节",
             (9, 10): "教师节",
             (10, 1): "国庆节",
-            (11, 5): "如心生日",
-            (12, 24): "爸爸生日",
             (12, 25): "圣诞节",
         }
+       
+        self.birthdays = {
+            (1, 20): "贝贝生日",
+            (2, 21): "妈妈生日",
+            (11, 5): "如心生日",
+            (12, 24): "爸爸生日",
+            (12, 7): "爷爷生日",
+            (6, 2): "奶奶生日",             
+            # ... [在这里添加其他生日]
+        }
+
         self.floating_festivals = {
             (11, 4, 4): "感恩节",  
             (5, 2, 7): "母亲节",
             (6, 3, 7): "父亲节",
             # ... [在这里添加其他浮动节日] (月份, 月份中的第几个星期,星期几的索引,其中星期一为1，星期日为7)
         }
+
+        self.add_lunar_festivals()
 
         self.add_floating_festivals()
 
@@ -49,13 +62,39 @@ class FestivalGenerator:
             festival_day = self.calculate_floating_festival(month, occurrence, weekday_index)
             self.festivals[(festival_day.month, festival_day.day)] = name
 
+    def add_lunar_festivals(self):
+        """添加农历节日"""
+        lunar_festivals = {
+            (1, 1): "春节",
+            (5, 5): "端午节",
+            (8, 15): "中秋节",
+            (1, 15): "元宵节",
+            (5, 5): "端午节",
+            (7, 7): "七夕节",
+            (9, 9): "重阳节",
+            (12, 8): "腊八节",
+            # ... [在这里添加其他农历节日]
+        }
+
+        for (lunar_month, lunar_day), festival_name in lunar_festivals.items():
+            try:
+                solar_date = Converter.Lunar2Solar(Lunar(self.year, lunar_month, lunar_day))
+                self.festivals[(solar_date.month, solar_date.day)] = festival_name
+            except DateNotExist:
+                pass  # 在某些年份，特定的农历日期可能不存在（比如闰月）
 
     def get_festivals(self):
             """返回节日字典"""
             return self.festivals
+    
+    def get_birthdays(self):
+            """返回生日字典"""
+            return self.birthdays
+
+    
 
 
-def generate_calendar_html(year,festivals):
+def generate_calendar_html(year,festivals,birthdays):
     # 创建一个calendar对象
     cal = calendar.Calendar(firstweekday=6)  # 将周日设为每周的第一天
 
@@ -111,7 +150,7 @@ def generate_calendar_html(year,festivals):
             .day-header, .month-grid div {{
                 border: 1px solid darkgray;
                 box-sizing: border-box;
-                height: 80%; /* 使得每个小格子高度一致 */
+                height: 90%; /* 使得每个小格子高度一致 */
             }}
             .day-header {{
                 font-weight: bold;
@@ -151,10 +190,14 @@ def generate_calendar_html(year,festivals):
             for day in week:
                 day_str = f"{day}" if day != 0 else ""
                 festival_str = festivals.get((month, day), "")
-                if not festival_str:
+                birthday_str = birthdays.get((month, day), "")
+                if not festival_str and not birthday_str:
                     festival_str = "&nbsp;"
+                if not birthday_str:
+                    birthday_str = "&nbsp;"               
                 # 将日期和节日放在不同的行
-                html_content += f"<div><span>{day_str}</span><br><span class='festival'>{festival_str}</span></div>"
+                html_content += f"<div><span>{day_str}</span><br><span class='festival'>{festival_str}</span><br><span class='birthday'>{birthday_str}</span></div>"
+
 
 
         html_content += "</div></div>"
@@ -164,8 +207,12 @@ def generate_calendar_html(year,festivals):
         </div>
         <style>
             .festival {
-                font-size: 8px; /* 调整节日文字大小 */
+                font-size: 6px; /* 调整节日文字大小 */
                 color: #999; /* 节日文字颜色 */
+            }
+            .birthday {
+                font-size: 6px; /* 调整生日文字大小 */
+                color: #ff6666; /* 生日文字颜色 */
             }
             /* 其他样式 */
         </style>
@@ -183,8 +230,11 @@ def generate_calendar_html(year,festivals):
 
 def main(year):
     """生成并显示指定年份的日历HTML文件。"""
-    festivals = FestivalGenerator(year).get_festivals()
-    generate_calendar_html(year, festivals)
+    festival_generator = FestivalGenerator(year)
+    festivals = festival_generator.get_festivals()
+    birthdays = festival_generator.get_birthdays() 
+    generate_calendar_html(year, festivals, birthdays)
+
 
 if __name__ == "__main__":
     # 检查是否有命令行参数
